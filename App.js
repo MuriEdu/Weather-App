@@ -1,22 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { useFonts } from '@expo-google-fonts/maven-pro';
+import { SafeAreaView } from 'react-native';
+import { Copyright } from './src/styles';
+import TopTitle from './src/components/TopTitle';
+import CityInput from './src/components/CityInput';
+import City from './src/components/City';
+import Weather from './src/components/Weather';
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  return(
+    <SafeAreaView>
+      <TopTitle/>
+      <City/>
+      <CityInput/>
+      <Weather/>
+      <Copyright>created by @MuriEdu</Copyright>
+    </SafeAreaView>
+  )
+
+}
