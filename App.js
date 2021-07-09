@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { useFonts } from '@expo-google-fonts/maven-pro';
 
 export default function App() {
   return (
