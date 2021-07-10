@@ -4,7 +4,7 @@ import { useFonts, MavenPro_400Regular, MavenPro_900Black } from '@expo-google-f
 import AppLoading from 'expo-app-loading';
 import { CityView } from '../styles';
 
-export default function City() {
+export default function City({city}) {
 
     let [fontsLoaded] = useFonts({
         MavenPro_400Regular,
@@ -22,7 +22,7 @@ export default function City() {
                         fontFamily: 'MavenPro_400Regular',
                     }}
                 > 
-                    São Carlos
+                    {city}
                 </Text>
             </CityView>
         )
