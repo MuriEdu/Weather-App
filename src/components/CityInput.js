@@ -14,10 +14,14 @@ export default function CityInput({ getSearch }) {
                 value={search}
                 onChangeText={(text)=>{
                     setSearch(text)
+                    
                 }}
             />
             <SearchButton
-                onPress={()=>{getSearch(search)}}
+                onPress={()=>{
+                    getSearch(search)
+                    setSearch('')
+                }}
             >
                 <Image 
                     style={{

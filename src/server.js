@@ -6,11 +6,9 @@ export const getCity = async (city) => {
     try {
         const response = await fetch(base + query)
         const data = await response.json()
-        const code = data[0].Key
-        getCurrentConditions(code)
-        
+        return data[0]
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 
@@ -20,8 +18,9 @@ export const getCurrentConditions = async (code) => {
     try {
         const response = await fetch(base + query)
         const data = await response.json()
-        console.log( await data);
+        return data
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }  
 }
+

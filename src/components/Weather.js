@@ -4,7 +4,7 @@ import { useFonts, JuliusSansOne_400Regular } from '@expo-google-fonts/julius-sa
 import AppLoading from 'expo-app-loading';
 import { WeatherView, WeatherTxt, Temp } from '../styles';
 
-export default function Weather({ city }) {
+export default function Weather({ weather }) {
 
     let [fontsLoaded] = useFonts({
         JuliusSansOne_400Regular,
@@ -14,7 +14,7 @@ export default function Weather({ city }) {
         return <AppLoading />;
     } else {
 
-        if (city === '') {
+        if (!weather) {
             return (<View
                 style={{height: 282}}
             ></View>)
@@ -27,7 +27,9 @@ export default function Weather({ city }) {
                 <View>
                     <Temp
                         style={{fontFamily: 'JuliusSansOne_400Regular'}}
-                        >25°</Temp>
+                        >
+                            {Math.trunc(weather[0].Temperature.Metric.Value)}°
+                        </Temp>
                     <WeatherTxt
                         style={{fontFamily: 'JuliusSansOne_400Regular'}}
                         >SUN</WeatherTxt>
