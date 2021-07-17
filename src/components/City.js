@@ -4,11 +4,20 @@ import { useFonts, MavenPro_400Regular, MavenPro_900Black } from '@expo-google-f
 import AppLoading from 'expo-app-loading';
 import { CityView } from '../styles';
 
-export default function City({city}) {
+export default function City({ city, area }) {
 
     let [fontsLoaded] = useFonts({
         MavenPro_400Regular,
     });
+
+    const verifyCity = () => {
+        if (!city || !area) {
+            return ''
+        }
+        else {
+            return `${city}, ${area}`
+        }
+    }
     
     if (!fontsLoaded) {
         return <AppLoading />;
@@ -22,7 +31,7 @@ export default function City({city}) {
                         fontFamily: 'MavenPro_400Regular',
                     }}
                 > 
-                    {city}
+                    {verifyCity()}
                 </Text>
             </CityView>
         )

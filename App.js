@@ -13,22 +13,23 @@ export default function App() {
 
   const [ city, setCity ] = useState('')
   const [ currentConditions, setCurrentConditions ] = useState(null)
+  const [ cityDets, setCityDets] = useState(null)
 
   const updateAPI =  async (city) => {
     
     const cityDets = await getCity(city)
     const weather = await getCurrentConditions(cityDets.Key)
 
-    return { weather }
+    return { weather, cityDets }
 
   }
 
   const updateApp = data => {
 
     const getWeather = data.weather
+    const cityDets = data.cityDets
     setCurrentConditions(getWeather);
-    console.log(currentConditions);
-
+    setCityDets(cityDets)
   }
 
   const Search = (search) => {
@@ -43,10 +44,18 @@ export default function App() {
     }
   }
 
+  let cityName = ''
+  let area = ''
+
+  if (cityDets) {
+     cityName = cityDets.LocalizedName
+     area = cityDets.AdministrativeArea.LocalizedName
+  }
+
   return(
     <SafeAreaView>
       <TopTitle/>
-      <City city={city.trim()}/>
+      <City city={cityName} area={area}/>
       <CityInput getSearch={Search}/>
       <Weather 
         weather={currentConditions}

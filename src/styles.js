@@ -37,7 +37,7 @@ export const SearchButton = styled.TouchableOpacity`
 
 export const WeatherView = styled.View`
     width: 345px;
-    height: 235px;
+    height: 285px;
     margin-top: 50px;
     border-radius: 10px;
     align-self: center;
@@ -57,6 +57,6 @@ export const WeatherTxt = styled.Text`
 
 export const Copyright = styled.Text`
     font-size: 15px;
-    margin-top: 291px;
+    margin-top: 240px;
     margin-left: 36px;
 `
